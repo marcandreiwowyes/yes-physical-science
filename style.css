@@ -1,0 +1,112 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: url('OIf0lp.jpg');
+    background-size: 100% 100%;
+    
+}
+.container{
+    backdrop-filter: blur(5px);
+    border: 2px solid white;
+    width: 800px;
+    height: 500px;
+    border-radius: 30px;
+    
+    box-shadow: 0 0 50px skyblue;
+    
+}
+h1{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    font-size: 50px;
+    color:transparent;
+    background: linear-gradient(0deg, white, skyblue, blue, skyblue, white);
+    -webkit-background-clip: text;
+    background-color: text;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    animation: pulse  2s ease-in-out infinite;
+    align-items: center;
+    transform-origin: center;
+    display: inline-block;
+    margin-left: 125px;
+    
+    
+    
+    
+}
+h2, h4{
+    display: flex;
+    justify-content: center;
+}
+#name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.btn{
+    display:flex;
+    justify-content: center;
+    padding:10px;
+}
+button{
+    padding:10px;
+    width:50%;
+    font-size: 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: skyblue;
+}
+@keyframes pulse{
+   0%{transform: scale(1);}
+   50%{transform: scale(1.3);}
+   100%{transform: scale(1);}
+}
+
+h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:transparent;
+    background: linear-gradient(0deg, white, yellow,skyblue, rgb(165, 62, 62), yellow, white);
+    -webkit-background-clip: text;
+    background-color: text;
+    font-weight: 10000;
+    font-size: 40px;
+    margin-top: 0;
+    -webkit-text-stroke: 1px, white;
+
+
+}
+h4{
+   color: white;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 20px;
+
+}
+.atom{
+    margin-left: 40px;
+}
+#name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px
+}
+.no{
+    background: linear-gradient(0deg, transparent , white);
+    border: 1px solid white; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 4px;
+    color: rgb(255, 247, 0)
+}
+.no:hover{
+    background: linear-gradient(0deg, white, blue);
+    color: brown;
+}
