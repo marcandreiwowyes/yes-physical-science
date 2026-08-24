@@ -1,0 +1,178 @@
+.navbar{
+    margin:0;
+    padding:1rem 1.5rem;
+    border-radius:0 0 30px 30px;
+    
+    background: rgba(9, 55, 131, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+*{
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar ul{
+    list-style-type: none;
+    display:flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.navbar a{
+    color: #eef4ff;
+    margin-right:0;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+.navbar li{
+    float: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    
+}
+.logo{
+    border: 1px solid white;
+    border-radius:30px;
+    width:150px;
+    padding-left:30px;
+    font-size: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.navdiv{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 1rem;
+}
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap: 0.75rem;
+}
+.nav-links{
+    display:flex;
+    gap: 1rem;
+}
+li a{
+    gap: 0;
+}
+body{
+    background: url(OIf0lp.jpg);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+button{
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-radius: 999px;
+    border:none;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(135deg, #1a62c1, #0f4ea8);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+a .sign{
+    margin: 0;
+}
+button:hover{
+    background: #0b3e7c;
+    transform: translateY(-1px);
+    border: 2px solid rgba(255,255,255,0.35);
+}
+button.yesd{
+    box-shadow: 0 14px 30px rgba(12, 60, 120, 0.18);
+}
+.sign{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 30%;
+}
+.navbar a:hover{
+    color: #cce4ff;
+}
+.games{
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    gap: 100px;
+}
+img{
+    border-radius: 30px;
+
+}
+.g3 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+    box-shadow: 0 0 70px white;
+}
+.g1 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+    box-shadow: 0 0 70px rgb(0, 255, 0);
+}
+.g2 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+    box-shadow: 0 0 70px rgb(255, 99, 255);
+}
+.g1{
+animation: gi1 1.7s ease-in-out;
+}
+.g2{
+ animation: gi2 2.5s ease-in-out;
+}
+.g3{
+    animation: gi3 3.5s ease-in-out;
+
+}
+
+@keyframes gi1{
+    0%{transform:translateY(100%); opacity: 0;}
+    100%{transform:translateY(0%); opacity: 1;}
+}
+@keyframes gi2{
+    0%{transform:translateY(100%); opacity: 0;}
+    100%{transform:translateY(0%); opacity: 1;}
+}
+@keyframes gi3{
+    0%{transform:translateY(100%); opacity: 0;}
+    100%{transform:translateY(0%); opacity: 1;}
+}
+.h{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:100px;
+    color: white;
+    letter-spacing: 5px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.h1{
+    animation: gi3 1.5s ease-in-out;
+
+}
+.h2{
+    animation: gi2 2.5s ease-in-out;
+}
+.h3{
+    animation: gi3 3.5s ease-in-out;
+}
+img:hover{
+    transform: rotateZ(360deg);
+    transition: 1slinear infinite;
+
+}

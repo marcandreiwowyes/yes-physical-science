@@ -1,0 +1,483 @@
+.bow-game-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background:
+        black;
+}
+
+.bow-game-container {
+    width: 100%;
+    max-width: 1300px;
+}
+
+.lesson-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    background: rgba(0,0,10,.82);
+    backdrop-filter: blur(15px);
+}
+
+.lesson-box {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 45px;
+    text-align: center;
+    border-radius: 30px;
+    background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+    border: 1px solid rgba(255,255,255,.2);
+    box-shadow: 0 30px 100px rgba(0,0,0,.6), 0 0 50px rgba(100,80,255,.15);
+}
+
+.lesson-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.lesson-small {
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #aaa0ff;
+}
+
+.lesson-box h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 40px;
+    margin: 12px 0;
+}
+
+.lesson-box > p {
+    color: rgba(255,255,255,.65);
+    line-height: 1.7;
+}
+
+.lesson-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.lesson-point {
+    padding: 20px 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.lesson-point strong {
+    display: block;
+    color: #b1a6ff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.lesson-point span {
+    display: block;
+    color: rgba(255,255,255,.55);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.lesson-tip {
+    padding: 13px;
+    border-radius: 12px;
+    background: rgba(130,110,255,.1);
+    color: rgba(255,255,255,.7);
+    font-size: 12px;
+}
+
+.lesson-start {
+    margin-top: 25px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    background: #7768d8;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.lesson-start:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(120,100,255,.5);
+}
+
+.bow-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.bow-title span {
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #aaa0ff;
+}
+
+.bow-title h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(35px, 5vw, 60px);
+    margin: 10px 0;
+}
+
+.bow-title strong {
+    color: #a298ff;
+}
+
+.bow-title p {
+    color: rgba(255,255,255,.5);
+}
+
+.bow-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.bow-info div {
+    min-width: 150px;
+    padding: 12px 25px;
+    text-align: center;
+    border-radius: 14px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    color: rgba(255,255,255,.5);
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.bow-info strong {
+    display: block;
+    margin-top: 5px;
+    color: white;
+    font-size: 20px;
+}
+
+.bow-game {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    min-height: 450px;
+    max-height: 700px;
+    overflow: hidden;
+    cursor: crosshair;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: linear-gradient(to bottom, black, white);
+    box-shadow: inset 0 0 100px rgba(0,0,0,.35), 0 30px 100px rgba(0,0,0,.4);
+}
+
+.game-sky {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 10% 15%, white, transparent),
+        radial-gradient(1px 1px at 25% 35%, white, transparent),
+        radial-gradient(2px 2px at 45% 12%, white, transparent),
+        radial-gradient(1px 1px at 60% 30%, white, transparent),
+        radial-gradient(2px 2px at 80% 15%, white, transparent),
+        radial-gradient(1px 1px at 90% 40%, white, transparent);
+    opacity: .45;
+}
+
+.bow-game::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 13%;
+    background: linear-gradient(transparent, rgba(17,45,25,.9));
+}
+
+.bow-target {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    width: 145px;
+    height: 145px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #f1f1f1;
+    border: 4px solid #222;
+    z-index: 5;
+}
+
+.target-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+
+.ring-1 {
+    width: 110px;
+    height: 110px;
+    background: #e85858;
+}
+
+.ring-2 {
+    width: 75px;
+    height: 75px;
+    background: #f4f4f4;
+}
+
+.ring-3 {
+    width: 42px;
+    height: 42px;
+    background: #e85858;
+}
+
+.target-center {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background: #222;
+}
+
+.bow {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    width: 90px;
+    height: 220px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.bow-body {
+    position: absolute;
+    left: 15px;
+    width: 70px;
+    height: 220px;
+    border: 10px solid #9b6037;
+    border-left: none;
+    border-radius: 0 50% 50% 0;
+}
+
+.bow-string {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 2px;
+    height: 206px;
+    background: #eee;
+}
+
+.shooting-arrow {
+    position: absolute;
+    left: calc(8% + 70px);
+    top: 50%;
+    width: 75px;
+    height: 4px;
+    transform: translateY(-50%);
+    transform-origin: left center;
+    z-index: 12;
+    pointer-events: none;
+}
+
+.arrow-shaft {
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    background: #d7b47d;
+}
+
+.arrow-head {
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 13px solid #555;
+}
+
+.arrow-feather {
+    position: absolute;
+    left: 2px;
+    top: -5px;
+    width: 14px;
+    height: 14px;
+    background: #ddd;
+    border-radius: 50% 0;
+}
+
+.bow-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(2,4,18,.8);
+    backdrop-filter: blur(10px);
+}
+
+.bow-overlay > div {
+    padding: 35px;
+}
+
+.bow-overlay h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 30px;
+}
+
+.bow-overlay p {
+    color: rgba(255,255,255,.6);
+    margin: 15px 0;
+}
+
+.bow-overlay button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #7567d5;
+    color: white;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.bow-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.bow-buttons button {
+    padding: 12px 28px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.07);
+    color: white;
+    cursor: pointer;
+}
+
+.bow-buttons button:hover {
+    background: rgba(120,105,220,.2);
+}
+
+.bow-exit:hover {
+    background: rgba(220,70,70,.2) !important;
+}
+
+.game-tip {
+    text-align: center;
+    margin-top: 15px;
+    color: rgba(255,255,255,.4);
+    font-size: 11px;
+}
+
+@media(max-width:700px) {
+    .bow-game-section {
+        padding: 30px 12px;
+    }
+
+    .lesson-points {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-box {
+        padding: 30px 20px;
+    }
+
+    .lesson-box h2 {
+        font-size: 30px;
+    }
+
+    .bow-info {
+        gap: 5px;
+    }
+
+    .bow-info div {
+        min-width: 0;
+        flex: 1;
+        padding: 10px 5px;
+    }
+
+    .bow-info strong {
+        font-size: 16px;
+    }
+
+    .bow-game {
+        height: 65vh;
+        min-height: 400px;
+    }
+
+    .bow {
+        left: 3%;
+        transform: translateY(-50%) scale(.75);
+    }
+
+    .shooting-arrow {
+        left: 10%;
+    }
+
+    .bow-target {
+        right: 5%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .ring-1 {
+        width: 75px;
+        height: 75px;
+    }
+
+    .ring-2 {
+        width: 50px;
+        height: 50px;
+    }
+
+    .ring-3 {
+        width: 28px;
+        height: 28px;
+    }
+}
+body{ 
+    margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lesson-points span{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.lesson-points strong{
+    font-size: 40px;
+}
+button{
+    width: 100%;
+}

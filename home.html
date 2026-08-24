@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="home.css">
+     <script src = "home.js" defer></script>
+</head>
+<body>
+     
+    <div id="stars"></div>
+    <div id="meteors"></div>
+</div>
+
+        <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo"><a href="">ISAAC NEWTON</a></div>
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="ingame.html">GAMES</a></li>
+                <li><a href="exam.html">QUIZ</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="pick.html"><img src="logout.png" width="30" height="30" class="sign"></a>
+                <button type="button" id="learnMoreBtn" class="yesd">LEARN MORE</button>
+                <button type="button" id="themeToggle" class="theme-toggle">Night</button>
+            </div>
+        </div>
+    </nav>
+    <div class="outer">
+
+        <div class="container">
+            
+            <div class="small-title">✦ CONNECT WITH US ✦</div>
+            <h1>ISAAC NEWTON</h1>
+            <p>
+                A brilliant English scientist who made groundbreaking contributions to physics, mathematics, and astronomy.
+            </p>
+            <div class="exbtn">
+                <a href="#law"><button class="btn" type="button">Explore Newston's LAWS</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="secs">
+        <div class="law">
+            <div class="law1">
+                <h1>LAW 1</h1>
+                <p>An object stays at rest or continues moving at constant speed unless acted on by a force.</p>
+            </div>
+            <div class="law2">
+                 <h1>LAW 2</h1>
+                <p>The acceleration of an object is proportional to the force applied and inversely proportional to its mass.</p>
+            </div>
+            <div class="law3">
+                 <h1>LAW 3</h1>
+                <p>For every action, there is an equal and opposite reaction.</p>
+            </div>
+        </div>
+        <section id="law">
+            
+            
+        </section>
+    </div>
+
+
+
+<section class="newton-section" id="newton-facts">
+
+
+    <div class="newton-particles"></div>
+
+
+
+        <!-- QUICK FACTS -->
+        <div class="newton-facts-grid">
+
+            <div class="newton-card">
+                <div class="newton-icon">🍎</div>
+
+                <h3>The Apple</h3>
+
+                <p>
+                    Newton is famously associated with the story of an apple
+                    inspiring his thoughts about gravity.
+                </p>
+
+                <button onclick="showNewtonFact(0)">
+                    Explore Fact
+                </button>
+            </div>
+
+
+            <div class="newton-card">
+                <div class="newton-icon">🌎</div>
+
+                <h3>Gravity</h3>
+
+                <p>
+                    Newton developed a mathematical description of universal
+                    gravitation and explained how objects attract one another.
+                </p>
+
+                <button onclick="showNewtonFact(1)">
+                    Explore Fact
+                </button>
+            </div>
+            <div class="newton-card"> <div class="newton-icon">⚡</div> <h3>Three Laws</h3> <p> Newton's three laws of motion became fundamental principles for understanding how forces affect objects. </p> <button onclick="showNewtonFact(2)"> Explore Fact </button> </div>
+
+
+            <div class="newton-card">
+                <div class="newton-icon">🔭</div>
+
+                <h3>Optics</h3>
+
+                <p>
+                    Newton studied light and demonstrated that white light can
+                    be separated into different colors.
+                </p>
+
+                <button onclick="showNewtonFact(3)">
+                    Explore Fact
+                </button>
+            </div>
+
+        </div>
+
+
+        <!-- INTERACTIVE FACT BOX -->
+        <div class="newton-discovery">
+
+            <div class="discovery-orbit">
+                <div class="discovery-planet">🍎</div>
+            </div>
+
+            <div class="discovery-content">
+
+                <span>✦ DISCOVERY DATABASE</span>
+
+                <h3 id="newtonFactTitle">
+                    Did You Know?
+                </h3>
+
+                <p id="newtonFactText">
+                    Click the button to discover an interesting fact about
+                    Isaac Newton.
+                </p>
+
+                <button
+                    class="discover-btn"
+                    onclick="randomNewtonFact()"
+                >
+                    ✦ Discover a Fact
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="newton-timeline-section">
+
+            <div class="newton-subtitle">
+                <span>✦</span>
+                <h3>Journey Through Time</h3>
+                <p>Important moments in Newton's life and work.</p>
+            </div>
+
+
+            <div class="newton-timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>1643</span>
+
+                        <h4>Birth</h4>
+
+                        <p>
+                            Isaac Newton was born in Woolsthorpe,
+                            Lincolnshire, England.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>1661</span>
+
+                        <h4>University</h4>
+
+                        <p>
+                            Newton entered Trinity College at the
+                            University of Cambridge.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>1660s</span>
+
+                        <h4>Scientific Work</h4>
+
+                        <p>
+                            Newton developed important ideas involving
+                            mathematics, motion, gravity, and optics.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>1687</span>
+
+                        <h4>Principia</h4>
+
+                        <p>
+                            Newton published <i>Philosophiæ Naturalis
+                            Principia Mathematica</i>, one of the most
+                            influential scientific works ever written.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <span>1727</span>
+
+                        <h4>Legacy</h4>
+
+                        <p>
+                            Newton died in London, leaving a lasting
+                            influence on physics and mathematics.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUOTE / CLOSING -->
+        <div class="newton-ending">
+
+            <div class="ending-glow"></div>
+
+            <span>✦ THE LEGACY</span>
+
+            <h3>
+                Understanding the universe
+                <strong>one discovery at a time.</strong>
+            </h3>
+
+            <p>
+                Newton's work helped establish foundations for classical
+                physics and transformed the study of mathematics, motion,
+                gravity, and light.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+const starsContainer = document.getElementById("stars");
+const numberOfStars = 150;
+for (let i = 0; i < numberOfStars; i++) {
+
+    const star = document.createElement("div");
+
+    star.classList.add("star");
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    
+    const size = Math.random() * 3 + 1;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    // Random animation speed
+    star.style.animationDuration =
+        (Math.random() * 3 + 1) + "s";
+
+    // Random animation delay
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+const meteorsContainer = document.getElementById("meteors");
+
+function createMeteor() {
+
+    const meteor = document.createElement("div");
+
+    meteor.classList.add("meteor");
+
+    // Start from a random position
+    meteor.style.left =
+        Math.random() * 120 + 10 + "%";
+
+    meteor.style.top =
+        Math.random() * 40 - 20 + "%";
+
+    // Random speed
+    const duration =
+        Math.random() * 2 + 1.5;
+
+    meteor.style.animationDuration =
+        duration + "s";
+
+    meteorsContainer.appendChild(meteor);
+
+    setTimeout(() => {
+        meteor.remove();
+    }, duration * 1000);
+}
+
+setInterval(createMeteor, 1500);
+</script>
+</body>
+</html>

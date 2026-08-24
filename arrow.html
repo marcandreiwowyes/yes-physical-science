@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="arrow.css">
+    <script src="arrow.js" defer></script>
+
+</head>
+<body>
+    <section class="bow-game-section" id="bowGame">
+
+    <div class="lesson-popup" id="lessonPopup">
+        <div class="lesson-box">
+            <div class="lesson-icon"></div>
+            <span class="lesson-small">ISAAC NEWTON • MINI LESSON</span>
+            <h2 style="color:white;">Force & Motion</h2>
+            <p>
+                Before playing, let's learn how a bow and arrow
+                connects to Isaac Newton's Laws of Motion.
+            </p>
+
+            <div class="lesson-points">
+                <div class="lesson-point">
+                    <strong>1st Law</strong>
+                    <span>The arrow stays at rest until a force from the bow makes it move.</span>
+                </div>
+
+                <div class="lesson-point">
+                    <strong>2nd Law</strong>
+                    <span>A greater force can cause greater acceleration of the arrow.</span>
+                </div>
+
+                <div class="lesson-point">
+                    <strong>3rd Law</strong>
+                    <span>The bow pushes the arrow forward, demonstrating action and reaction.</span>
+                </div>
+            </div>
+
+            <div class="lesson-tip">
+                Aim for the center of the target to get the highest score!
+            </div>
+
+            <button class="lesson-start" onclick="closeLesson()">
+                PLAY
+            </button>
+        </div>
+    </div>
+
+    <div class="bow-game-container">
+        <div class="bow-title">
+            <span>✦ ISAAC NEWTON • FORCE & MOTION ✦</span>
+            <h2><span style="color:white; font-size: 40px;">Bow & Arrow</span> <strong>Challenge</strong></h2>
+            <p>Aim carefully. Pull back. Release!</p>
+        </div>
+
+        <div class="bow-info">
+            <div>SCORE <strong id="bowScore">0</strong></div>
+            <div>ARROWS <strong id="bowArrows">10</strong></div>
+            <div>HIGH SCORE <strong id="bowHighScore">0</strong></div>
+        </div>
+
+        <div class="bow-game" id="bowGameArea">
+            <div class="game-sky"></div>
+
+            <div class="bow-target" id="bowTarget">
+                <div class="target-ring ring-1"></div>
+                <div class="target-ring ring-2"></div>
+                <div class="target-ring ring-3"></div>
+                <div class="target-center"></div>
+            </div>
+
+            <div class="bow" id="bow">
+                <div class="bow-body"></div>
+                <div class="bow-string"></div>
+            </div>
+
+            <div class="shooting-arrow" id="shootingArrow">
+                <div class="arrow-shaft"></div>
+                <div class="arrow-head"></div>
+                <div class="arrow-feather"></div>
+            </div>
+
+            <div class="bow-overlay hidden" id="bowGameOver">
+                <div>
+                    <h3 style="color:white">Game Over!</h3>
+                    <p>Your final score: <strong id="bowFinalScore">0</strong></p>
+                    <button onclick="restartBowGame()">PLAY AGAIN</button>
+                </div>
+            </div>
+
+            <div class="bow-overlay hidden" id="bowPause">
+                <div>
+                    <h3>Game Paused</h3>
+                    <p>Take a break and continue whenever you're ready.</p>
+                    <button onclick="resumeBowGame()">CONTINUE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bow-buttons">
+            <button onclick="toggleBowPause()" id="bowPauseButton">⏸ Pause</button>
+            <button onclick="window.location.href='ingame.html'" class="bow-exit">✕ Exit</button>
+        </div>
+
+        <div class="game-tip">
+         Click anywhere inside the game to shoot. Move your mouse to aim.
+        </div>
+    </div>
+</section>
+    
+</body>
+</html>
