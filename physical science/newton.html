@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="newton.css">
+</head>
+<body>
+    <div class="b1">
+        <div class="b2">
+            <div class="b3"></div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo"><a href="">ISAAC NEWTON</a></div>
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="ingame.html">GAMES</a></li>
+                <li><a href="">QUIZ</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="pick.html"><img src="logout.png" width="30" height="30" class="sign"></a>
+                <button type="button" id="learnMoreBtn" class="yesd">LEARN MORE</button>
+                <button type="button" id="themeToggle" class="theme-toggle">Night</button>
+            </div>
+        </div>
+    </nav>
+    <div class="cont">
+
+        
+        <section class="secs" id="home">
+        <div class="header_img">
+            <audio id="hoversound" src="freesound_community-blablabla-82044.mp3"></audio>
+            <div class="hero-chip">Explore classical physics</div>
+            <img id="cycleImage" src="wowyes.png" alt="Newton image 1">
+            <div id="imageOverlay" class="overlay-text">
+                Click the image to change it
+            </div>
+        </div>
+        <div class="header_content">
+            <h1>Meet Isaac Newton</h1>
+            <h2>The Man Who Changed Our Understanding of the Universe</h2>
+            <p>Isaac Newton was one of the most influential scientists and mathematicians in history. Born in England in 1643, he made discoveries that transformed the way people understood motion, gravity, light, and the natural world. His ideas became the foundation of classical physics and continue to influence science and technology today.!</p>
+            <p>Newton is best known for his three laws of motion and his law of universal gravitation, which helped explain how objects move on Earth and how planets travel through space. He also made important contributions to mathematics, including the development of calculus, and conducted groundbreaking experiments on light and color.</p>
+            <button type="button" class="yesd">Learn More</button>
+            <div class="hero-badges">
+                <span class="badge">Gravity 9.8 m/s²</span>
+                <span class="badge">Light speed</span>
+                <span class="badge">17th century</span>
+            </div>
+            <div class="header_sidebox">
+                <h3>Right-side insight</h3>
+                <p>Newton's discoveries still shape the world around us.</p>
+                <ul class="quick-list">
+                    <li>Motion rules: inertia, force, acceleration.</li>
+                    <li>Gravity binds planets and keeps us grounded.</li>
+                    <li>Light reveals color through refraction.</li>
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="features" id="features">
+        <h2>Newton in Blue</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Physics meets design</h3>
+                <p>Explore Newton's ideas with crisp blue highlights that emphasize motion, light, and clarity.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Interactive learning</h3>
+                <p>Click the main image to cycle through Newton-themed illustrations while the content stays calm and stable.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Modern layout</h3>
+                <p>Soft gradients, blue accents, and clean cards keep the page elegant and easy to read.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta-banner">
+        <div class="cta-content">
+            <p class="cta-label">Newton in motion</p>
+            <h2>Deepen your science journey</h2>
+            <p>Explore more elements of physics</p>        
+        </div>
+        <button type="button" id="discoverBtn">Discover Newton's laws</button>
+    </section>
+
+    <section class="law-highlights" id="laws">
+        <div class="law-header">
+            <h2>Newton's Laws</h2>
+            <button type="button" id="lawBtn">Highlight a law</button>
+        </div>
+        <div class="law-grid">
+            <div class="law-card">
+                <h3>Law 1</h3>
+                <p>An object stays at rest or continues moving at constant speed unless acted on by a force.</p>
+            </div>
+            <div class="law-card">
+                <h3>Law 2</h3>
+                <p>The acceleration of an object is proportional to the force applied and inversely proportional to its mass.</p>
+            </div>
+            <div class="law-card">
+                <h3>Law 3</h3>
+                <p>For every action, there is an equal and opposite reaction.</p>
+            </div>
+        </div>
+        <div class="law-highlight-box">
+            <p id="highlightText">Click the button to reveal a Newton law highlight.</p>
+        </div>
+    </section>
+
+    <section class="quote-carousel">
+        <div class="quote-frame">
+            <p id="quoteText">"If I have seen further it is by standing on the shoulders of giants."</p>
+            <p class="quote-author">— Isaac Newton</p>
+        </div>
+    </section>
+    <section class="fact-panel" id="factPanel">
+        <h3>Newton's Quick Fact</h3>
+        <p id="factText">Isaac Newton's original notes for his laws were written in Latin.</p>
+        <button type="button" id="factBtn">Show another fact</button>
+    </section>
+<br>
+
+    <section class="portrait-section">
+        <div class="portrait-info">
+            <h2>Isaac Newton, in context</h2>
+            <p>Newton was a thinker who combined curiosity and math to explain the universe. This portrait is placed here for a stronger visual balance on the right side of the page, away from the hero image.</p>
+            <p>His work launched the scientific revolution and still inspires physics, engineering, and space exploration.</p>
+        </div>
+        <div class="portrait-card">
+            <img src="isaac.png" alt="Isaac Newton portrait">
+            <p class="photo-caption">Sir Isaac Newton (1643–1727)</p>
+        </div>
+    </section>
+    
+    <footer class="page-footer">
+        <p>Marc Andrei Ramos | 12 ICT</p>
+    </footer>
+</div>
+    
+    <script>
+        const imageSources = [
+            { src: "wowyes.png", alt: "Welcome bubble", showOverlay: true, overlayText: "Welcome to Newton's world" },
+            { src: "31fff815942b47578959de79d61114f3.png", alt: "Newton image 2", showOverlay: false, overlayText: "A second portrait" },
+            { src: "6a021efba2a940b3a86c5f5a326607f7-removebg-preview.png", alt: "Newton image 3", showOverlay: false, overlayText: "A physics-inspired illustration" },
+            { src: "four.png", alt: "Newton image 4", showOverlay: false, overlayText: "Explore science visuals" },
+            { src: "Newton5.png", alt: "Newton image 5", showOverlay: false, overlayText: "Newton's legacy in motion" },
+            { src: "Newton6.png", alt: "Newton image 6", showOverlay: false, overlayText: "Classic Maths energy" },
+            { src: "Newton7.png", alt: "Newton image 7", showOverlay: false, overlayText: "A brighter physics vibe" },
+            { src: "Newton8.png", alt: "Newton image 8", showOverlay: false, overlayText: "Learning through imagery" },
+        ];
+
+        let currentIndex = 0;
+        const cycleImage = document.getElementById("cycleImage");
+        const imageOverlay = document.getElementById("imageOverlay");
+        const audioEl = document.getElementById("hoversound");
+
+        if (audioEl) audioEl.preload = "auto";
+
+        const updateImage = () => {
+            const item = imageSources[currentIndex];
+            cycleImage.src = item.src;
+            cycleImage.alt = item.alt || "";
+            const showOverlay = !!item.showOverlay;
+            if (imageOverlay) {
+                imageOverlay.style.display = showOverlay ? "block" : "none";
+                imageOverlay.textContent = item.overlayText || "Click the image to change it";
+            }
+        };
+
+        updateImage();
+
+        cycleImage.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % imageSources.length;
+            updateImage();
+            if (audioEl) {
+                try {
+                    audioEl.currentTime = 0;
+                    const p = audioEl.play();
+                    if (p && p.catch) p.catch(() => {});
+                } catch (e) {}
+            }
+        });
+
+        const learnMoreBtn = document.getElementById("learnMoreBtn");
+        const featuresSection = document.getElementById("features");
+        if (learnMoreBtn && featuresSection) {
+            learnMoreBtn.addEventListener("click", () => {
+                featuresSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        }
+
+        const discoverBtn = document.getElementById("discoverBtn");
+        const lawsSection = document.getElementById("laws");
+        if (discoverBtn && lawsSection) {
+            discoverBtn.addEventListener("click", () => {
+                lawsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        }
+
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                document.body.classList.toggle("theme-dark");
+                themeToggle.textContent = document.body.classList.contains("theme-dark") ? "Day" : "Night";
+            });
+        }
+
+        const cycleFactBtn = document.getElementById("cycleFactBtn");
+        const didCards = Array.from(document.querySelectorAll(".did-card"));
+        if (cycleFactBtn && didCards.length) {
+            cycleFactBtn.addEventListener("click", () => {
+                const activeIndex = didCards.findIndex(card => card.classList.contains("active"));
+                const nextIndex = (activeIndex + 1) % didCards.length;
+                didCards.forEach((card, index) => card.classList.toggle("active", index === nextIndex));
+            });
+        }
+
+        const quizOptions = Array.from(document.querySelectorAll(".quiz-option"));
+        const quizResult = document.getElementById("quizResult");
+        if (quizOptions && quizResult) {
+            quizOptions.forEach(option => {
+                option.addEventListener("click", () => {
+                    const userAnswer = option.getAttribute("data-answer");
+                    const isCorrect = userAnswer === "3";
+                    quizResult.textContent = isCorrect ? "Correct! Law 3 explains action and reaction in rockets." : "Not quite. Try again!";
+                    quizResult.classList.toggle("correct", isCorrect);
+                    quizResult.classList.toggle("incorrect", !isCorrect);
+                });
+            });
+        }
+
+        const factBtn = document.getElementById("factBtn");
+        const factText = document.getElementById("factText");
+        const facts = [
+            "Isaac Newton discovered that white light is made of colors.",
+            "Newton published his famous work 'Philosophiæ Naturalis Principia Mathematica' in 1687.",
+            "He built one of the first practical reflecting telescopes.",
+            "Newton's second law relates force, mass, and acceleration.",
+            "supot pa si Sean Paul",
+            "Idol ko si Pilot, wow yes",
+            "Hindi pa tuli si Isaac Newton"
+        ];
+
+        const lawBtn = document.getElementById("lawBtn");
+        const highlightText = document.getElementById("highlightText");
+        const lawHighlights = [
+            "Law 1 shows why a rolling ball will continue until something stops it.",
+            "Law 2 explains how heavier objects need more force to accelerate.",
+            "Law 3 means rockets can fly by pushing exhaust backward.",
+            "Newton's laws are the foundation for most classical mechanics." 
+        ];
+
+        if (factBtn && factText) {
+            factBtn.addEventListener("click", () => {
+                const nextIndex = Math.floor(Math.random() * facts.length);
+                factText.textContent = facts[nextIndex];
+            });
+        }
+
+        if (lawBtn && highlightText) {
+            lawBtn.addEventListener("click", () => {
+                const nextIndex = Math.floor(Math.random() * lawHighlights.length);
+                highlightText.textContent = lawHighlights[nextIndex];
+            });
+        }
+    </script>
+</body>
+</html>

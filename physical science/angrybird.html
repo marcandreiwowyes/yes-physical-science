@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics Launcher</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #080d18;
+    color: white;
+    overflow: hidden;
+}
+
+#gameScreen {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: #0a0f17;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.topBar {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.info {
+    background: rgba(8, 13, 24, 0.85);
+    border: 1px solid #40506d;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 17px;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.controls button,
+.menu button {
+    border: none;
+    padding: 10px 17px;
+    border-radius: 7px;
+    background: #344b76;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.controls button:hover,
+.menu button:hover {
+    background: #4b679b;
+}
+
+#pauseScreen,
+#exitScreen,
+#startScreen,
+#gameOverScreen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(5, 9, 17, 0.82);
+    z-index: 10;
+}
+
+.panel {
+    width: 90%;
+    max-width: 470px;
+    background: #121c31;
+    border: 1px solid #435574;
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.panel h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.panel p {
+    color: #bdc5d4;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#powerDisplay {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: rgba(8,13,24,.85);
+    border: 1px solid #40506d;
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 14px;
+}
+
+@media(max-width:600px) {
+    .topBar {
+        width: 95%;
+    }
+
+    .info {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .controls button {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .panel h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="gameScreen">
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div class="topBar">
+
+        <div class="info">
+            Score: <span id="score">0</span>
+        </div>
+
+        <div class="info">
+            Targets: <span id="targets">5</span>
+        </div>
+
+        <div class="controls">
+            <button onclick="pauseGame()">Pause</button>
+            <button onclick="window.location.href='ingame.html'">Exit</button>
+        </div>
+
+    </div>
+
+    <div id="powerDisplay">
+        Power: <span id="power">0</span>%
+    </div>
+
+    <div id="startScreen">
+
+        <div class="panel">
+
+            <h1>Angry Bieber</h1>
+
+            <p>
+                Drag the ball backward and release it to launch.
+                Use projectile motion, gravity, and angle to hit
+                the targets.
+            </p>
+
+            <div class="menu">
+                <button onclick="startGame()">Start Game</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="pauseScreen" class="hidden">
+
+        <div class="panel">
+
+            <h1>PAUSED</h1>
+
+            <p>The simulation is currently paused.</p>
+
+            <div class="menu">
+                <button onclick="pauseGame()">Resume</button>
+                <button onclick="restartGame()">Restart</button>
+                <button onclick="window.location.href='ingame.html'">Exit</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="exitScreen" class="hidden">
+
+        <div class="panel">
+
+            <h1>GAME EXITED</h1>
+
+            <p>
+                Your game has been stopped.
+            </p>
+
+            <div class="menu">
+                <button onclick="startGame()">Play Again</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="gameOverScreen" class="hidden">
+
+        <div class="panel">
+
+            <h1 id="gameOverTitle">ROUND COMPLETE</h1>
+
+            <p>
+                Final Score:
+                <strong id="finalScore">0</strong>
+            </p>
+
+            <div class="menu">
+                <button onclick="restartGame()">Play Again</button>
+                <button onclick="exitGame()">Exit</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const scoreText = document.getElementById("score");
+const targetText = document.getElementById("targets");
+const powerText = document.getElementById("power");
+
+const startScreen = document.getElementById("startScreen");
+const pauseScreen = document.getElementById("pauseScreen");
+const exitScreen = document.getElementById("exitScreen");
+const gameOverScreen = document.getElementById("gameOverScreen");
+
+let W;
+let H;
+
+let gameRunning = false;
+let paused = false;
+
+let score = 0;
+let round = 1;
+
+let dragging = false;
+let launched = false;
+
+let mouseX = 0;
+let mouseY = 0;
+
+const gravity = 0.32;
+
+const sling = {
+    x: 150,
+    y: 0
+};
+
+const ball = {
+    x: 150,
+    y: 0,
+    radius: 60,
+    vx: 0,
+    vy: 0
+};
+
+let targets = [];
+
+const ballImage = new Image();
+ballImage.src = "Picsart_26-08-24_08-40-01-181.png";
+
+const targetImage = new Image();
+targetImage.src = "file_00000000df7071f59c5a4cb8c10acb0a (1).png";
+
+const backgroundImage = new Image();
+backgroundImage.src = "IMG_20260824_085115.jpg";
+
+function resizeCanvas() {
+
+    const ratio = window.devicePixelRatio || 1;
+
+    W = window.innerWidth;
+    H = window.innerHeight;
+
+    canvas.width = W * ratio;
+    canvas.height = H * ratio;
+
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+    sling.x = Math.max(100, W * 0.14);
+    sling.y = H - 150;
+
+    if (!launched) {
+        ball.x = sling.x;
+        ball.y = sling.y;
+    }
+}
+
+window.addEventListener("resize", resizeCanvas);
+
+function createTargets() {
+
+    targets = [];
+
+    const baseX = Math.min(W * 0.80, 700);
+    const baseY = H - 130;
+
+    const positions = [
+        { x: baseX, y: baseY },
+        { x: baseX + 70, y: baseY },
+        { x: baseX + 140, y: baseY },
+        { x: baseX + 35, y: baseY - 75 },
+        { x: baseX + 105, y: baseY - 75 }
+    ];
+
+    positions.forEach((pos, index) => {
+
+        targets.push({
+            x: pos.x,
+            y: pos.y,
+            width: 70,
+            height: 70,
+            alive: true,
+            points: 100 + index * 25
+        });
+
+    });
+
+    updateTargetCount();
+}
+
+function updateTargetCount() {
+
+    const remaining = targets.filter(t => t.alive).length;
+
+    targetText.textContent = remaining;
+}
+
+function drawBackground() {
+
+    if (backgroundImage.complete && backgroundImage.naturalWidth > 0) {
+
+        ctx.drawImage(backgroundImage, 0, 0, W, H);
+
+    } else {
+
+        ctx.fillStyle = "#101827";
+        ctx.fillRect(0, 0, W, H);
+
+        ctx.fillStyle = "#151f32";
+        ctx.fillRect(0, H - 100, W, 100);
+
+        ctx.strokeStyle = "#263751";
+        ctx.lineWidth = 2;
+
+        for (let x = 0; x < W; x += 70) {
+
+            ctx.beginPath();
+            ctx.moveTo(x, H - 100);
+            ctx.lineTo(x, H);
+            ctx.stroke();
+
+        }
+
+        for (let y = H - 100; y < H; y += 25) {
+
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(W, y);
+            ctx.stroke();
+
+        }
+    }
+}
+
+function drawSling() {
+
+    ctx.strokeStyle = "#76543c";
+    ctx.lineWidth = 12;
+    ctx.lineCap = "round";
+
+    ctx.beginPath();
+    ctx.moveTo(sling.x - 18, sling.y + 65);
+    ctx.lineTo(sling.x, sling.y);
+    ctx.lineTo(sling.x + 18, sling.y + 65);
+    ctx.stroke();
+
+    if (!launched) {
+
+        ctx.strokeStyle = "#c49a6c";
+        ctx.lineWidth = 5;
+
+        ctx.beginPath();
+        ctx.moveTo(sling.x, sling.y);
+        ctx.lineTo(ball.x, ball.y);
+        ctx.stroke();
+
+    }
+}
+
+function drawBall() {
+
+    if (ballImage.complete && ballImage.naturalWidth > 0) {
+
+        ctx.drawImage(
+            ballImage,
+            ball.x - ball.radius,
+            ball.y - ball.radius,
+            ball.radius * 2,
+            ball.radius * 2
+        );
+
+    } else {
+
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+
+        ctx.fillStyle = "#d6d6d6";
+        ctx.fill();
+
+        ctx.strokeStyle = "#777";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+    }
+}
+
+function drawTargets() {
+
+    targets.forEach(target => {
+
+        if (!target.alive) return;
+
+        if (targetImage.complete && targetImage.naturalWidth > 0) {
+
+            ctx.drawImage(
+                targetImage,
+                target.x - target.width / 2,
+                target.y - target.height / 2,
+                target.width,
+                target.height
+            );
+
+        } else {
+
+            ctx.fillStyle = "#c75a54";
+
+            ctx.fillRect(
+                target.x - target.width / 2,
+                target.y - target.height / 2,
+                target.width,
+                target.height
+            );
+
+            ctx.strokeStyle = "#713b39";
+            ctx.lineWidth = 3;
+
+            ctx.strokeRect(
+                target.x - target.width / 2,
+                target.y - target.height / 2,
+                target.width,
+                target.height
+            );
+
+            ctx.fillStyle = "#e4d4bd";
+
+            ctx.fillRect(
+                target.x - 14,
+                target.y - 14,
+                28,
+                28
+            );
+
+            ctx.fillStyle = "#b6403a";
+
+            ctx.beginPath();
+            ctx.arc(target.x, target.y, 7, 0, Math.PI * 2);
+            ctx.fill();
+
+        }
+
+    });
+}
+
+function drawTrajectory() {
+
+    if (!dragging || launched) return;
+
+    const dx = sling.x - ball.x;
+    const dy = sling.y - ball.y;
+
+    const power = Math.min(Math.sqrt(dx * dx + dy * dy), 150);
+
+    const vx = dx * 0.13;
+    const vy = dy * 0.13;
+
+    ctx.fillStyle = "rgba(255,255,255,0.5)";
+
+    let px = sling.x;
+    let py = sling.y;
+
+    for (let i = 0; i < 35; i++) {
+
+        px += vx;
+        py += vy + gravity * i;
+
+        ctx.beginPath();
+        ctx.arc(px, py, 3, 0, Math.PI * 2);
+        ctx.fill();
+
+    }
+
+    powerText.textContent =
+        Math.round((power / 150) * 100);
+}
+
+function draw() {
+
+    ctx.clearRect(0, 0, W, H);
+
+    drawBackground();
+    drawTrajectory();
+    drawSling();
+    drawTargets();
+    drawBall();
+}
+
+function updatePhysics() {
+
+    if (!gameRunning || paused || !launched) return;
+
+    ball.vy += gravity;
+
+    ball.x += ball.vx;
+    ball.y += ball.vy;
+
+    ball.vx *= 0.999;
+    ball.vy *= 0.999;
+
+    checkTargetCollisions();
+
+    if (
+        ball.y > H + 100 ||
+        ball.x > W + 100 ||
+        ball.x < -100
+    ) {
+
+        setTimeout(resetBall, 600);
+
+    }
+
+    if (
+        Math.abs(ball.vx) < 0.05 &&
+        Math.abs(ball.vy) < 0.05 &&
+        ball.y > H - 130
+    ) {
+
+        setTimeout(resetBall, 500);
+
+    }
+}
+
+function checkTargetCollisions() {
+
+    targets.forEach(target => {
+
+        if (!target.alive) return;
+
+        const closestX = Math.max(
+            target.x - target.width / 2,
+            Math.min(ball.x, target.x + target.width / 2)
+        );
+
+        const closestY = Math.max(
+            target.y - target.height / 2,
+            Math.min(ball.y, target.y + target.height / 2)
+        );
+
+        const dx = ball.x - closestX;
+        const dy = ball.y - closestY;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < ball.radius) {
+
+            target.alive = false;
+
+            score += target.points;
+
+            scoreText.textContent = score;
+
+            updateTargetCount();
+
+            ball.vx *= -0.55;
+            ball.vy *= -0.55;
+
+            checkWin();
+
+        }
+
+    });
+}
+
+function checkWin() {
+
+    if (targets.every(target => !target.alive)) {
+
+        gameRunning = false;
+
+        setTimeout(() => {
+
+            document.getElementById("gameOverTitle").textContent =
+                "ROUND COMPLETE";
+
+            document.getElementById("finalScore").textContent =
+                score;
+
+            gameOverScreen.classList.remove("hidden");
+
+        }, 500);
+
+    }
+}
+
+function resetBall() {
+
+    if (!gameRunning) return;
+
+    launched = false;
+
+    ball.x = sling.x;
+    ball.y = sling.y;
+
+    ball.vx = 0;
+    ball.vy = 0;
+
+    powerText.textContent = "0";
+
+}
+
+function getPointerPosition(e) {
+
+    const rect = canvas.getBoundingClientRect();
+
+    if (e.touches) {
+
+        return {
+            x: e.touches[0].clientX - rect.left,
+            y: e.touches[0].clientY - rect.top
+        };
+
+    }
+
+    return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+    };
+}
+
+function pointerDown(e) {
+
+    if (!gameRunning || paused || launched) return;
+
+    const pos = getPointerPosition(e);
+
+    const distance = Math.hypot(
+        pos.x - ball.x,
+        pos.y - ball.y
+    );
+
+    if (distance < 45) {
+
+        dragging = true;
+
+    }
+}
+
+function pointerMove(e) {
+
+    if (!dragging || launched) return;
+
+    const pos = getPointerPosition(e);
+
+    const dx = pos.x - sling.x;
+    const dy = pos.y - sling.y;
+
+    const maxDistance = 150;
+
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance > maxDistance) {
+
+        const ratio = maxDistance / distance;
+
+        ball.x = sling.x + dx * ratio;
+        ball.y = sling.y + dy * ratio;
+
+    } else {
+
+        ball.x = pos.x;
+        ball.y = pos.y;
+
+    }
+
+    const power = Math.min(
+        Math.hypot(
+            sling.x - ball.x,
+            sling.y - ball.y
+        ),
+        150
+    );
+
+    powerText.textContent =
+        Math.round((power / 150) * 100);
+}
+
+function pointerUp() {
+
+    if (!dragging || launched) return;
+
+    dragging = false;
+    launched = true;
+
+    const dx = sling.x - ball.x;
+    const dy = sling.y - ball.y;
+
+    ball.vx = dx * 0.13;
+    ball.vy = dy * 0.13;
+
+    powerText.textContent = "0";
+}
+
+canvas.addEventListener("mousedown", pointerDown);
+canvas.addEventListener("mousemove", pointerMove);
+canvas.addEventListener("mouseup", pointerUp);
+
+canvas.addEventListener("touchstart", pointerDown, {
+    passive: true
+});
+
+canvas.addEventListener("touchmove", pointerMove, {
+    passive: true
+});
+
+canvas.addEventListener("touchend", pointerUp);
+
+function gameLoop() {
+
+    updatePhysics();
+    draw();
+
+    requestAnimationFrame(gameLoop);
+
+}
+
+function startGame() {
+
+    startScreen.classList.add("hidden");
+    exitScreen.classList.add("hidden");
+    pauseScreen.classList.add("hidden");
+    gameOverScreen.classList.add("hidden");
+
+    gameRunning = true;
+    paused = false;
+
+    score = 0;
+
+    scoreText.textContent = "0";
+
+    createTargets();
+    resetBall();
+
+}
+
+function pauseGame() {
+
+    if (!gameRunning) return;
+
+    paused = !paused;
+
+    if (paused) {
+
+        pauseScreen.classList.remove("hidden");
+
+    } else {
+
+        pauseScreen.classList.add("hidden");
+
+    }
+}
+
+function restartGame() {
+
+    gameOverScreen.classList.add("hidden");
+    pauseScreen.classList.add("hidden");
+    exitScreen.classList.add("hidden");
+
+    score = 0;
+
+    scoreText.textContent = "0";
+
+    gameRunning = true;
+    paused = false;
+
+    createTargets();
+    resetBall();
+
+}
+
+function exitGame() {
+
+    gameRunning = false;
+    paused = false;
+    dragging = false;
+    launched = false;
+
+    pauseScreen.classList.add("hidden");
+    gameOverScreen.classList.add("hidden");
+    startScreen.classList.add("hidden");
+
+    exitScreen.classList.remove("hidden");
+
+}
+
+resizeCanvas();
+createTargets();
+gameLoop();
+</script>
+
+</body>
+</html>

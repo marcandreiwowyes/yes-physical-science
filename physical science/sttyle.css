@@ -1,0 +1,471 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+@keyframes twinkle1 {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle2 {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle3 {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle4 {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle5 {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle6 {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle7 {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle8 {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle9 {
+    0%, 100% { opacity: 0.38; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle10 {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+@keyframes twinkle11 {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background: url('space-purple-blue-astronomy-wallpaper.jpg');
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #00ffff 0%, rgba(0, 255, 255, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 10%;
+    left: 5%;
+    animation: twinkle1 3s infinite;
+    box-shadow: 0 0 20px #00ffff;
+    pointer-events: none;
+}
+body::after {
+    content: '';
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, #ffff00 0%, rgba(255, 255, 0, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 20%;
+    right: 8%;
+    animation: twinkle2 4s infinite;
+    box-shadow: 0 0 20px #ffff00;
+    pointer-events: none;
+}
+::before {
+    content: '';
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    background: radial-gradient(circle, #ff00ff 0%, rgba(255, 0, 255, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 30%;
+    left: 8%;
+    animation: twinkle3 3.5s infinite;
+    box-shadow: 0 0 18px #ff00ff;
+    pointer-events: none;
+}
+body::after {
+    content: '';
+    position: fixed;
+    width: 26px;
+    height: 26px;
+    background: radial-gradient(circle, #00ff88 0%, rgba(0, 255, 136, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    bottom: 25%;
+    right: 12%;
+    animation: twinkle4 4.5s infinite;
+    box-shadow: 0 0 18px #00ff88;
+    pointer-events: none;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    background: radial-gradient(circle, #ff00ff 0%, rgba(255, 0, 255, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 50%;
+    left: 10%;
+    animation: twinkle10 3.5s infinite;
+    box-shadow: 0 0 18px #ff00ff;
+    pointer-events: none;
+}
+
+.inp::before {
+    content: '';
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff6ec7 0%, rgba(255, 110, 199, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 50%;
+    left: 3%;
+    animation: twinkle5 3.2s infinite;
+    box-shadow: 0 0 15px #ff6ec7;
+    pointer-events: none;
+}
+.inp::after {
+    content: '';
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, #00d4ff 0%, rgba(0, 212, 255, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    bottom: 10%;
+    right: 5%;
+    animation: twinkle6 3.8s infinite;
+    box-shadow: 0 0 18px #00d4ff;
+    pointer-events: none;
+}
+.loginForm{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width:200px;
+    align-items: center;
+    margin: 0 auto;
+    margin-right:10px;
+}
+
+
+.imgWrapper::before {
+    content: '';
+    position: fixed;
+    width: 19px;
+    height: 19px;
+    background: radial-gradient(circle, #ff00ff 0%, rgba(255, 0, 255, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 25%;
+    right: 3%;
+    animation: twinkle7 3.8s infinite;
+    box-shadow: 0 0 15px #ff00ff;
+    pointer-events: none;
+}
+.imgWrapper::after {
+    content: '';
+    position: fixed;
+    width: 27px;
+    height: 27px;
+    background: radial-gradient(circle, #ffff00 0%, rgba(255, 255, 0, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 60%;
+    right: 25%;
+    animation: twinkle8 4.1s infinite;
+    box-shadow: 0 0 20px #ffff00;
+    pointer-events: none;
+}
+.imgLabel::before {
+    content: '';
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00ff88 0%, rgba(0, 255, 136, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    bottom: 40%;
+    left: 3%;
+    animation: twinkle6 3.9s infinite;
+    box-shadow: 0 0 16px #00ff88;
+    pointer-events: none;
+}
+.imgLabel::after {
+    content: '';
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, #ff6ec7 0%, rgba(255, 110, 199, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    top: 70%;
+    left: 25%;
+    animation: twinkle9 4.3s infinite;
+    box-shadow: 0 0 18px #ff6ec7;
+    pointer-events: none;
+}
+.loginForm.show{
+    display: flex;
+}
+.container{
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 50px;
+    animation: yes 2s ease-in-out;
+    background: radial-gradient(circle, white, rgb(197, 197, 255), rgb(76, 76, 240), skyblue, rgb(131, 86, 219), violet, rgb(188, 188, 255), white);
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease, 0.3s ease;
+}
+@keyframes yes{
+    0%{
+        transform: translateY(100%); opacity: 0;
+    }100%{transform:translateY(0%); opacity: 1;}
+}
+
+.container.active {
+    transform: scale(1.16);
+    z-index: 5;
+}
+
+.container.active .imgWrapper img {
+    transform: scale(1.03);
+}
+
+.container.inactive {
+    transform: scale(0.74);
+    opacity: 0.35;
+    filter: saturate(1.2) brightness(1.05) hue-rotate(12deg);
+    background: radial-gradient(circle, #fff7cc, #ffdf89, #ffb347, #ff8c00);
+}
+
+.container.inactive .imgWrapper img {
+    opacity: 0.7;
+}
+
+.container.inactive .imgLabel {
+    color: #8b4f00;
+}
+
+.container.inactive .okay {
+    background: linear-gradient(-45deg, #fff0a5, #ffc56a, #ff9f43, #ff7a00);
+}
+
+.container.inactive hr {
+    border-color: #bb7000;
+}
+
+.inp{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-bottom: 10px;
+    
+}
+img{
+    cursor: pointer;
+    border-radius:50px;
+    transition: 0.3s;
+    display: block;
+}
+.imgWrapper{
+    position: relative;
+    display: inline-block;
+}
+.imgLabel{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(67, 67, 67, 0.7);
+    color: skyblue;
+    text-align: center;
+    padding: 15px;
+    border-radius: 0 0 50px 50px;
+    font-weight: bold;
+    font-size: 32px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 0 50px white;
+}
+.imgWrapper:hover .imgLabel{
+    transform: translateY(0);
+    opacity: 1;
+}
+img:hover{
+    opacity: 0.8;
+    transform: rotateY(360deg);
+    transition:2s;
+    padding: url('freesound_community-card-mixing-48088.mp3');
+    
+}
+#Email{
+    padding: 10px;
+    width:100%;
+    border-radius: 30px;
+    border:none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0px 0 40px rgb(255, 255, 255);
+
+
+}
+p{
+    text-align: center;
+    font-weight: bolder;
+}
+
+h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+hr{
+    width:100%;
+    color:black;
+    margin:4px;
+    border: 1px solid black;
+}
+.apple{
+    
+    margin-top: 0;
+   
+    animation: rotateLogo 2s ease-in-out;
+}
+@keyframes rotateLogo {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+.okay{
+    padding:
+        10px;
+        width: 100%;
+        border: none;
+        border-radius: 30px;
+        color:white;
+        background:linear-gradient(-45deg, white, skyblue, blue, blue, skyblue, white);
+    }
+    .okay a{
+        text-decoration: none;
+        color:white;
+        font-size: 20px;
+    }
+    .okay:hover{
+        transform: scale(1.3);
+        transition:1s;
+        box-shadow: 0 0 20px rgb(249, 249, 249),
+        0 0 40px rgb(255, 255, 255),
+        0 0 50px rgb(252, 252, 252);
+        background: white;
+        color: skyblue;
+        border: 2px solid skyblue;
+    }
+    .okay a:hover{
+        color:skyblue;
+    }
+    
+.okay::before{
+    inset:0;
+    border-radius: inherit;
+    border: 2px solid #818cf8;
+    background: transparent;
+    animation: okayPulse 2s ease-out infinite;
+}
+.container:hover::after{
+    content:"";
+    position: absolute;
+    inset: -7px;
+    background: conic-gradient(from var(--angle), transparent 50%,white, #00d4ff, violet, rgb(0, 106, 255), blue, #00d4ff, white);
+    z-index: -1;
+    border-radius:inherit;
+
+}
+.container::before{
+    z-index: -2;
+    filter: blur(20px);
+    opacity: 0.7;
+}
+.container:hover::after{
+    animation: glowing-border 2.5s linear infinite;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes glowing-border{
+    from  {
+        --angle:0deg;
+    }to{
+        --angle: 360deg;
+    }
+}
+.container:hover::before{
+    animation: blur-effect 3.5s linear infinite, glowing-border 2.5s linear infinite;
+}
+@keyframes blur-effect{
+    from{
+        filter: blur(20px);
+    }to{
+        filter:blur(19px);
+    }
+     
+}
+.space{
+    margin-left:100px;
+}
+.ne{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: white;
+    margin: 0;
+    padding: 10px 20px;
+    z-index: 10;
+    animation: pulse 2s ease-in-out infinite;
+    text-align: center;
+    stroke: 2px solid blue;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.3);
+        opacity: 0.9;
+    }
+}
+
+img:hover{
+    transform: rotateY(360deg);
+    transition:2s;
+}
+.container:hover{
+    transform: rotateY(360deg);
+    transition:2s;
+}
+.tele{
+    border-radius: 0%;
+}

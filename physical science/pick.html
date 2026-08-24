@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sttyle.css">
+</head>
+<body>
+    <h1 class="ne"style="color:white">CHOOSE A CHARACTER!</h1>
+    <div class="container">
+        <div class="imgWrapper">
+            <img id="hoverImg" src="images.jpg" width="300px">
+            <div class="imgLabel">NEWTON</div>
+            <audio id="hoverSound3" src="[Mortal Kombat]Isaac......wton .mp3"></audio>
+            <audio id="hoverSound4" src="[Mortal Kombat]Choos......cter .mp3"></audio>
+        </div>
+        <form class="loginForm">
+            
+            <div class="apple"><img src="1000004964-removebg-preview.png" alt="apple" width="100px"></div>
+            <hr>
+            <h1><mark style="background-color: black; color:white;">ISAAC</mark><mark style="background: white;">NEWTON</mark></h1>
+        
+            <hr>
+        
+            <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                Isaac Newton(1642-1727)<br>
+                was an English physicist,<br>
+                mathematician, and astronomer<br>
+
+            </p>
+            <hr>
+            <br>
+            <h3>Aura: 67,000</h3>
+            <h3>IQ: 200</h3>
+            <br>
+          
+
+            <div class="btn">
+                <button type="button" class="okay" onclick="light(1)"><a href="home.html">CONTINUE</a></button>
+                
+            </div>
+
+        </form>
+    </div>
+<div class="space">
+    <div class="container">
+        <div class="imgWrapper">
+           
+            <img id="hoverImg2" src="images (1).jpg" width="300px" height="425px" alt="Your image here">
+            <div class="imgLabel">GALILEO</div>
+            <audio id="hoverSound2" src="[Mortal Kombat]Galil......ilei .mp3"></audio>
+        </div>
+        <form class="loginForm">
+            <div class="apple"><img src="telescope.png" alt="apple" width="60px" class="tele"></div>
+            <hr>
+            <h1><mark style="background-color: black; color:white;">GALILEO</mark><mark style="background: white;"> GALILEI</mark></h1>
+            <hr>
+            <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                Galileo Galilei was an Italian scientist who<br>
+                improved the telescope and studied the stars and planets.<br>
+            </p>
+            <hr>
+            <br>
+            <h3>Aura: 167000</h3>
+            <h3>IQ: panot</h3>
+            <br>
+            <div class="btn">
+                <button type="submit" class="okay"><a href="leo.html">CONTINUE</a></button>
+            </div>
+        </form>
+    </div>
+    </div>
+    
+    <script>
+        const cards = document.querySelectorAll('.container');
+        const images = document.querySelectorAll('.imgWrapper img');
+        
+        const hoverSound2 = document.querySelector('#hoverSound2');
+        const hoverSound3 = document.querySelector('#hoverSound3');
+        const hoverSound4 = document.querySelector('#hoverSound4');
+        let selectedCard = null;
+
+        function activateCard(card) {
+            cards.forEach(c => {
+                if (c === card) {
+                    c.classList.add('active');
+                    c.classList.remove('inactive');
+                } else {
+                    c.classList.add('inactive');
+                    c.classList.remove('active');
+                }
+            });
+            selectedCard = card;
+        }
+
+        function clearCards() {
+            cards.forEach(c => c.classList.remove('active', 'inactive'));
+            selectedCard = null;
+        }
+
+        function stopHoverSounds() {
+            [hoverSound2, hoverSound3].forEach(sound => {
+                if (sound) {
+                    sound.pause();
+                    sound.currentTime = 0;
+                }
+            });
+        }
+
+        function playSound(sound, duration = 3000) {
+            if (!sound) return;
+            sound.currentTime = 0;
+            sound.play().catch(err => console.log('Audio play error:', err));
+            setTimeout(() => {
+                sound.pause();
+            }, duration);
+        }
+
+        images.forEach(img => {
+            const card = img.closest('.container');
+            const form = img.closest('.imgWrapper').nextElementSibling;
+            const hoverSoundForImage = img.id === 'hoverImg' ? hoverSound3 : img.id === 'hoverImg2' ? hoverSound2 : null;
+
+            img.addEventListener('click', function() {
+                const isOpen = form && form.classList.contains('show');
+                document.querySelectorAll('.loginForm').forEach(otherForm => {
+                    if (otherForm !== form) {
+                        otherForm.classList.remove('show');
+                    }
+                });
+
+                if (isOpen) {
+                    form.classList.remove('show');
+                    clearCards();
+                } else {
+                    if (form && form.classList.contains('loginForm')) {
+                        form.classList.add('show');
+                    }
+                    activateCard(card);
+                }
+
+                if (hoverSound) {
+                    stopHoverSounds();
+                    playSound(hoverSound, 2000);
+                }
+            });
+
+            img.addEventListener('mouseenter', function() {
+                if (selectedCard !== card) {
+                    activateCard(card);
+                }
+
+                if (hoverSoundForImage) {
+                    stopHoverSounds();
+                    playSound(hoverSoundForImage, 2000);
+                }
+            });
+
+            img.addEventListener('mouseleave', function() {
+                if (selectedCard !== card) {
+                    clearCards();
+                }
+            });
+        });
+
+        window.addEventListener('load', function() {
+            if (hoverSound4) {
+                playSound(hoverSound4, 3000);
+            }
+        });
+        function yes(no){
+            if(no==1){
+                window.location.href="newton.html";
+            }
+        }
+    </script>
+    
+
+
+
+   
+</body>
+</html>

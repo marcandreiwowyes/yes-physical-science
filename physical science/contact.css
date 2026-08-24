@@ -1,0 +1,692 @@
+*{
+    Margin: 0;
+    Padding: 0;
+    Box-sizing: border-box;
+}
+
+Html {
+    Scroll-behavior: smooth;
+}
+
+Body {
+    Min-height: 100vh;
+    Background:
+        Radial-gradient(circle at 20% 20%, #18285c 0%, transparent 30%),
+        Radial-gradient(circle at 80% 70%, #30145e 0%, transparent 30%),
+        #030615;
+
+    Color: white;
+    Font-family: "Poppins", sans-serif;
+    Overflow-x: hidden;
+}
+
+.stars,
+.stars2,
+.stars3 {
+    Position: fixed;
+    Inset: 0;
+    Pointer-events: none;
+    z-index: -2;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(1px 1px at 40% 70%, white, transparent),
+        radial-gradient(2px 2px at 70% 20%, white, transparent),
+        radial-gradient(1px 1px at 80% 80%, white, transparent),
+        radial-gradient(2px 2px at 10% 90%, white, transparent),
+        radial-gradient(1px 1px at 60% 50%, white, transparent);
+
+    background-size: 500px 500px;
+
+    animation: starsMove 80s linear infinite;
+}
+
+.stars2 {
+    Opacity: .4;
+    Transform: scale(1.5);
+    Animation-duration: 120s;
+}
+
+.stars3 {
+    Opacity: .2;
+    Transform: scale(2);
+    Animation-duration: 160s;
+}
+
+@keyframes starsMove {
+
+    From {
+        Transform: translateY(0);
+    }
+
+    To {
+        Transform: translateY(-500px);
+    }
+
+}
+
+
+
+
+.planet {
+    Position: fixed;
+    Border-radius: 50%;
+    Pointer-events: none;
+    z-index: -1;
+}
+
+.planet-one {
+
+    Width: 280px;
+    Height: 280px;
+
+    Right: -120px;
+    Top: 15%;
+
+    Background:
+        Radial-gradient(circle at 30% 30%,
+        #8b7cff,
+        #443b9c 45%,
+        #15134b);
+
+    Box-shadow:
+        0 0 80px rgba(100, 80, 255, .4);
+
+}
+
+.planet-two {
+
+    Width: 130px;
+    Height: 130px;
+
+    Left: -50px;
+    Bottom: 15%;
+
+    Background:
+        Radial-gradient(circle at 35% 30%,
+        #ffb4e8,
+        #813a91 50%,
+        #170d38);
+
+    Box-shadow:
+        0 0 60px rgba(210, 90, 255, .35);
+
+}
+
+
+
+
+.navbar{
+    margin:0;
+    padding:1rem 1.5rem;
+    border-radius:0 0 30px 30px;
+    animation: translateNavbar 1s ease-out forwards;
+    background: rgba(9, 55, 131, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+@keyframes translateNavbar{
+    0% { transform: translateY(100%); opacity:0; }
+    100% {transform: translateY(0%); opacity:1; }
+}.navbar ul{
+    list-style-type: none;
+    display:flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.navbar a{
+    color: #eef4ff;
+    margin-right:0;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+.navbar li{
+    float: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    
+}
+.logo{
+    border: 1px solid white;
+    border-radius:30px;
+    width:150px;
+    padding-left:30px;
+    font-size: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.navdiv{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 1rem;
+}
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap: 0.75rem;
+}
+.nav-links{
+    display:flex;
+    gap: 1rem;
+}
+li a{
+    gap: 0;
+}
+
+
+
+.hero {
+
+    Min-height: 100vh;
+    Display: flex;
+    Justify-content: center;
+    Align-items: center;
+
+    Text-align: center;
+
+    Padding: 120px 20px 80px;
+}
+
+.hero-content {
+    Max-width: 800px;
+}
+
+.small-title,
+.mini-label {
+
+    Font-family: “Orbitron”, sans-serif;
+    Font-size: 12px;
+    Letter-spacing: 4px;
+    Color: #b8afff;
+    Margin-bottom: 25px;
+}
+
+.hero h1 {
+
+    Font-family: “Orbitron”, sans-serif;
+    Font-size: clamp(45px, 8vw, 90px);
+    Line-height: 1.05;
+    Letter-spacing: 5px;
+    Text-shadow:
+        0 0 30px rgba(135,120,255,.35);
+}
+
+.hero h1 span,
+.school-info h2 span {
+
+    Display: block;
+
+    Background: linear-gradient(
+        90deg,
+        #fff,
+        #9d91ff,
+        #e7baff
+    );
+
+    -webkit-background-clip: text;
+    Color: transparent;
+}
+
+.hero p {
+    Max-width: 600px;
+    Margin: 30px auto;
+    Color: rgba(255,255,255,.65);
+    Line-height: 1.8;
+}
+
+.explore-btn {
+
+    Display: inline-block;
+    Padding: 14px 28px;
+    Border-radius: 50px;
+    Color: white;
+    Text-decoration: none;
+    Background: rgba(255,255,255,.1);
+    Border: 1px solid rgba(255,255,255,.2);
+    Backdrop-filter: blur(10px);
+    Transition: .3s;
+}
+
+.explore-btn:hover {
+    Transform: translateY(-4px);
+    Background: rgba(150,130,255,.2);
+    Box-shadow: 0 0 30px rgba(130,110,255,.3);
+}
+
+
+
+.contact-section,
+.message-section {
+    Padding: 100px 7%;
+}
+
+.section-title {
+    Text-align: center;
+    Margin-bottom: 55px;
+}
+
+.section-title span {
+    Color: #a99cff;
+    Font-size: 25px;
+}
+
+.section-title h2 {
+    Font-family: “Orbitron”, sans-serif;
+    Font-size: 35px;
+    Margin: 10px 0;
+}
+.section-title p {
+    Color: rgba(255,255,255,.55);
+}
+
+.contact-grid {
+    Max-width: 1100px;
+    Margin: auto;
+    Display: grid;
+    Grid-template-columns: repeat(4, 1fr);
+    Gap: 20px;
+}
+
+.glass-card {
+    Padding: 30px 20px;
+    Text-align: center;
+    Border-radius: 25px;
+    Border: 1px solid rgba(255,255,255,.15);
+    Background: rgba(255,255,255,.06);
+    Backdrop-filter: blur(20px);
+    Transition: .4s;
+}
+
+.glass-card:hover {
+    Transform: translateY(-10px);
+    Border-color: rgba(174,155,255,.5);
+    Box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 30px rgba(130,100,255,.15);
+}
+
+.icon {
+
+    Width: 60px;
+    Height: 60px;
+    Margin: auto auto 20px;
+    Display: flex;
+    Align-items: center;
+    Justify-content: center;
+    Border-radius: 50%;
+    Background: rgba(150,130,255,.15);
+    Border: 1px solid rgba(190,170,255,.25);
+    Color: #c8c0ff;
+    Font-size: 25px;
+    Font-family: “Orbitron”, sans-serif;
+}
+
+.glass-card h3 {
+    Font-family: "Orbitron", sans-serif;
+    Font-size: 16px;
+    Margin-bottom: 8px;
+}
+
+.glass-card p {
+    Color: rgba(255,255,255,.5);
+    Font-size: 12px;
+    Margin-bottom: 15px;
+}
+
+.glass-card a {
+    Color: #bcb2ff;
+    Font-size: 12px;
+    Text-decoration: none;
+    Word-break: break-word;
+}
+
+.school-section {
+    Padding: 80px 7%;
+}
+
+.glass-panel {
+    Max-width: 1100px;
+    Margin: auto;
+    Padding: 50px;
+    Display: grid;
+    Grid-template-columns: 1.5fr 1fr;
+    Gap: 50px;
+    Border-radius: 35px;
+    Border: 1px solid rgba(255,255,255,.15);
+    Background: rgba(255,255,255,.06);
+    Backdrop-filter: blur(25px);
+    Box-shadow: 0 30px 100px rgba(0,0,0,.2);
+}
+
+.school-info h2 {
+    Font-family: “Orbitron”, sans-serif;
+    Font-size: 35px;
+    Line-height: 1.3;
+    Margin: 15px 0 20px;
+}
+
+.school-info > p {
+    Color: rgba(255,255,255,.6);
+    Line-height: 1.8;
+    Font-size: 14px;
+    Max-width: 600px;
+}
+
+.info-list {
+    Margin-top: 30px;
+}
+
+.info-item {
+    Display: flex;
+    Gap: 15px;
+    Margin-bottom: 20px;
+}
+
+.info-item > span {
+    Font-size: 22px;
+}
+
+.info-item strong {
+    Font-size: 14px;
+}
+
+.info-item p {
+
+    Color: rgba(255,255,255,.5);
+    Font-size: 12px;
+    Margin-top: 3px;
+}
+
+
+
+.location-box {
+    Min-height: 350px;
+    Display: flex;
+    Flex-direction: column;
+    Justify-content: center;
+    Align-items: center;
+    Text-align: center;
+    Border-radius: 25px;
+    Background:
+        Radial-gradient(
+            Circle,
+            Rgba(110,90,255,.18),
+            Transparent 65%
+        );
+
+    Border: 1px solid rgba(255,255,255,.1);
+}
+
+.location-box h3 {
+    Font-family: “Orbitron”, sans-serif;
+    Margin: 20px 0 10px;
+}
+
+.location-box p {
+    Color: rgba(255,255,255,.6);
+    Line-height: 1.7;
+}
+
+.location-box button {
+    Margin-top: 20px;
+    Padding: 12px 22px;
+    Border: 1px solid rgba(255,255,255,.2);
+    Border-radius: 30px;
+    Background: rgba(255,255,255,.08);
+    Color: white;
+    Cursor: pointer;
+    Transition: .3s;
+}
+
+.location-box button:hover {
+    Background: rgba(150,130,255,.2);
+}
+
+.location-orbit {
+    Width: 130px;
+    Height: 130px;
+
+    Position: relative;
+    Display: flex;
+    Align-items: center;
+    Justify-content: center;
+}
+
+.orbit {
+    Position: absolute;
+    Width: 120px;
+    Height: 45px;
+    Border: 1px solid rgba(180,160,255,.5);
+    Border-radius: 50%;
+    Transform: rotate(-25deg);
+    Animation: orbit 5s linear infinite;
+}
+
+.planet-small {
+    Font-size: 45px;
+}
+
+@keyframes orbit {
+
+    From {
+        Transform: rotate(-25deg) rotate(0deg);
+    }
+
+    To {
+        Transform: rotate(-25deg) rotate(360deg);
+    }
+
+}
+
+
+.contact-form {
+    Max-width: 850px;
+    Margin: auto;
+Padding: 40px;
+    Border-radius: 30px;
+    Background: rgba(255,255,255,.05);
+    Border: 1px solid rgba(255,255,255,.13);
+    Backdrop-filter: blur(20px);
+}
+
+.input-row {
+    Display: grid;
+    Grid-template-columns: 1fr 1fr;
+    Gap: 20px;
+}
+
+.input-group {
+    Display: flex;
+    Flex-direction: column;
+    Margin-bottom: 20px;
+}
+
+.input-group label {
+
+    Font-size: 12px;
+
+    Color: rgba(255,255,255,.6);
+
+    Margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group textarea {
+
+    Width: 100%;
+    Padding: 15px;
+    Border-radius: 12px;
+    Border: 1px solid rgba(255,255,255,.12);
+    Background: rgba(0,0,0,.2);
+    Color: white;
+    Outline: none;
+    Font-family: “Poppins”, sans-serif;
+    Transition: .3s;
+}
+
+.input-group textarea {
+    Resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+
+    Border-color: #a99cff;
+
+    Box-shadow:
+        0 0 20px rgba(140,120,255,.15);
+}
+
+.send-btn {
+
+  Width: 100%;
+    Padding: 16px;
+    Border: none;
+    Border-radius: 15px;
+    Color: white;
+    Font-family: “Orbitron”, sans-serif;
+Letter-spacing: 2px;
+ Cursor: pointer;
+
+    Background:
+        Linear-gradient(
+            90deg,
+            #5147a8,
+            #876bdd,
+            #5147a8
+        );
+
+    Background-size: 200%;
+
+    Transition: .4s;
+}
+
+.send-btn:hover {
+    Background-position: right;
+    Box-shadow:
+        0 0 30px rgba(130,110,255,.35);
+
+    Transform: translateY(-3px);
+}
+
+
+
+
+Footer {
+    Padding: 60px 20px;
+    Text-align: center;
+    Border-top: 1px solid rgba(255,255,255,.1);
+    Background: rgba(0,0,0,.2);
+}
+
+.footer-logo {
+    Font-family: “Orbitron”, sans-serif;
+    Font-size: 25px;
+    Letter-spacing: 4px;
+    Margin-bottom: 10px;
+}
+
+Footer > p {
+
+    Color: rgba(255,255,255,.5);
+
+    Font-size: 13px;
+}
+
+.socials {
+
+    Display: flex;
+
+    Justify-content: center;
+
+    Gap: 12px;
+
+    Margin: 25px 0;
+}
+
+.socials a {
+
+    Width: 40px;
+    Height: 40px;
+
+    Display: flex;
+    Justify-content: center;
+    Align-items: center;
+    Border-radius: 50%;
+    Text-decoration: none;
+    Color: white;
+  Background: rgba(255,255,255,.08);
+    Border: 1px solid rgba(255,255,255,.15);
+    Transition: .3s;
+}
+
+.socials a:hover {
+    Transform: translateY(-5px);
+    Background: rgba(140,120,255,.25);
+    Box-shadow: 0 0 20px rgba(140,120,255,.3);
+}
+
+.copyright {
+    Margin-top: 20px;
+    Font-size: 10px !important;
+
+    Opacity: .5;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    .contact-grid {
+        Grid-template-columns: repeat(2, 1fr);
+    }
+
+    .glass-panel {
+        Grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        Width: 94%;
+    }
+
+    .nav-links {
+        Gap: 12px;
+    }
+
+    .nav-links a {
+        Font-size: 11px;
+    }
+
+    .hero h1 {
+        Font-size: 45px;
+    }
+
+    .contact-grid {
+        Grid-template-columns: 1fr;
+    }
+
+    .glass-panel {
+        Padding: 30px 20px;
+    }
+
+    .school-info h2 {
+        Font-size: 27px;
+    }
+
+    .input-row {
+        Grid-template-columns: 1fr;
+        Gap: 0;
+    }
+
+    .contact-form {
+        Padding: 25px 18px;
+    }
+
+}

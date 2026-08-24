@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galileo Galilei | Explorer of the Universe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090f1f;
+    color: #f3f0df;
+}
+
+header {
+    background: #111a30;
+    padding: 17px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #293653;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #d5d8e1;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #8eaff5;
+}
+
+.hero {
+    min-height: 88vh;
+    padding: 70px 10%;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 80% 20%, #243c68 0, transparent 23%),
+        radial-gradient(circle at 15% 80%, #172747 0, transparent 25%);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    margin-bottom: 8px;
+}
+
+.hero h2 {
+    font-size: 24px;
+    color: #91b3f3;
+    margin-bottom: 22px;
+}
+
+.hero p {
+    max-width: 650px;
+    line-height: 1.8;
+    color: #c4c9d5;
+    font-size: 17px;
+}
+
+.hero-buttons {
+    margin-top: 28px;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    background: #5577c3;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: #3f60a7;
+}
+
+.button.secondary {
+    background: transparent;
+    border: 1px solid #5577c3;
+}
+
+.stars {
+    position: absolute;
+    right: 10%;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid #647eae;
+    box-shadow: 0 0 35px #243d70;
+}
+
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+}
+
+.stars::before {
+    width: 5px;
+    height: 5px;
+    top: 35px;
+    left: 50px;
+    box-shadow:
+        90px 20px white,
+        150px 100px white,
+        50px 160px white,
+        185px 55px white,
+        110px 190px white;
+}
+
+section {
+    padding: 75px 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #9da5b8;
+    margin-bottom: 40px;
+}
+
+.about {
+    background: #0d1528;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+    background: #151f36;
+    padding: 32px;
+    border-radius: 12px;
+    line-height: 1.8;
+    color: #cbd0db;
+}
+
+.timeline {
+    max-width: 850px;
+    margin: auto;
+}
+
+.timeline-item {
+    background: #151f36;
+    margin: 20px 0;
+    padding: 22px;
+    border-left: 4px solid #6387d5;
+    border-radius: 7px;
+}
+
+.timeline-item h3 {
+    color: #91b3f3;
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    color: #c3c8d4;
+    line-height: 1.6;
+}
+
+.discoveries {
+    background: #0d1528;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #151f36;
+    padding: 25px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: #192642;
+}
+
+.card h3 {
+    color: #91b3f3;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #c4c9d4;
+    line-height: 1.6;
+}
+
+.quote {
+    text-align: center;
+    background: #111a30;
+    padding: 80px 10%;
+}
+
+.quote-text {
+    max-width: 800px;
+    margin: auto;
+    font-size: 27px;
+    line-height: 1.6;
+    color: #e1e3e9;
+}
+
+.quote small {
+    display: block;
+    margin-top: 20px;
+    color: #91b3f3;
+}
+
+.facts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.fact-box {
+    background: #151f36;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.fact-box h3 {
+    font-size: 30px;
+    color: #91b3f3;
+    margin-bottom: 10px;
+}
+
+.fact-box p {
+    color: #c2c7d3;
+}
+
+.aura {
+    background: #0d1528;
+    text-align: center;
+}
+
+.aura-number {
+    font-size: 70px;
+    font-weight: bold;
+    color: #91b3f3;
+    margin: 15px;
+}
+
+.aura-bar {
+    max-width: 600px;
+    height: 20px;
+    margin: 20px auto;
+    background: #27334b;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.aura-fill {
+    width: 95%;
+    height: 100%;
+    background: #6688d0;
+}
+
+.aura p {
+    color: #c4c8d2;
+}
+
+.quiz-section {
+    background: #10192d;
+}
+
+.quiz-container {
+    max-width: 750px;
+    margin: auto;
+    background: #151f36;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    color: #9eabc4;
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 7px;
+    background: #29354d;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 10%;
+    height: 100%;
+    background: #6688d0;
+    transition: 0.3s;
+}
+
+.question {
+    font-size: 23px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+.answer {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #3b4a69;
+    background: #10182c;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.answer:hover {
+    background: #263655;
+}
+
+.answer.correct {
+    background: #276045;
+    border-color: #4b9b70;
+}
+
+.answer.wrong {
+    background: #703b3b;
+    border-color: #a85a5a;
+}
+
+.answer:disabled {
+    cursor: not-allowed;
+}
+
+.next-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 8px;
+    background: #5577c3;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    display: none;
+}
+
+.next-btn:hover {
+    background: #3f60a7;
+}
+
+.result {
+    display: none;
+    text-align: center;
+}
+
+.result h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.final-score {
+    font-size: 65px;
+    color: #91b3f3;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.restart {
+    border: none;
+    padding: 13px 25px;
+    background: #5577c3;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 28px;
+    background: #070c17;
+    color: #9ba3b5;
+    border-top: 1px solid #202d47;
+}
+
+@media(max-width: 800px) {
+    .hero {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .stars {
+        display: none;
+    }
+
+    .cards,
+    .facts-container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">GALILEO</div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#life">Life</a>
+        <a href="#discoveries">Discoveries</a>
+        <a href="#facts">Facts</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Galileo Galilei</h1>
+
+        <h2>The Man Who Looked Beyond the Sky</h2>
+
+        <p>
+            Galileo Galilei was an Italian astronomer, physicist,
+            and scientist whose observations changed the way people
+            understood the universe. Through the telescope, he
+            discovered things that challenged the scientific ideas
+            of his time.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#about" class="button">Learn More</a>
+            <a href="#quiz" class="button secondary">Take the Quiz</a>
+        </div>
+    </div>
+
+    <div class="stars"></div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h2 class="section-title">Who Was Galileo?</h2>
+
+    <p class="section-subtitle">
+        A scientist who changed our view of the universe.
+    </p>
+
+    <div class="about-container">
+        Galileo Galilei was born in 1564 in Pisa, Italy. He became
+        one of the most important figures of the Scientific Revolution.
+        He improved the telescope and used it to make detailed
+        observations of the night sky.
+
+        <br><br>
+
+        His observations of the Moon, Jupiter, Venus, and the Sun
+        provided important evidence for a Sun-centered model of the
+        solar system. His work also helped establish observation and
+        experimentation as important parts of modern science.
+    </div>
+
+</section>
+
+<section id="life">
+
+    <h2 class="section-title">A Short Timeline</h2>
+
+    <p class="section-subtitle">
+        Important moments in Galileo's life.
+    </p>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>1564 — Born in Pisa</h3>
+            <p>
+                Galileo was born in Pisa, Italy, and later became
+                interested in mathematics, science, and astronomy.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1609 — Telescope Improvements</h3>
+            <p>
+                Galileo improved the telescope and began using it
+                to observe objects in the night sky.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1610 — Major Astronomical Observations</h3>
+            <p>
+                He published observations that included Jupiter's
+                four largest moons and features on the Moon.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1632 — Dialogue Published</h3>
+            <p>
+                Galileo published a famous work discussing different
+                ideas about the arrangement of the universe.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>1642 — Galileo Dies</h3>
+            <p>
+                Galileo died in Arcetri, near Florence, Italy,
+                leaving a major influence on modern science.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="discoveries" id="discoveries">
+
+    <h2 class="section-title">Major Discoveries</h2>
+
+    <p class="section-subtitle">
+        What Galileo saw through his telescope.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Jupiter's Moons</h3>
+            <p>
+                Galileo observed four moons orbiting Jupiter.
+                These observations showed that celestial objects
+                could orbit something other than Earth.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Phases of Venus</h3>
+            <p>
+                Galileo observed the changing phases of Venus,
+                providing evidence that supported the
+                Sun-centered model.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>The Moon</h3>
+            <p>
+                His telescope revealed mountains, valleys, and
+                uneven features on the Moon's surface.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Sunspots</h3>
+            <p>
+                Galileo observed dark spots moving across the
+                Sun and studied their changing positions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="quote">
+
+    <div class="quote-text">
+        “The universe cannot be read until we have learnt the
+        language and become familiar with the characters in which
+        it is written.”
+    </div>
+
+    <small>— Galileo Galilei</small>
+
+</section>
+
+<section id="facts">
+
+    <h2 class="section-title">Quick Facts</h2>
+
+    <p class="section-subtitle">
+        A few things to remember about Galileo.
+    </p>
+
+    <div class="facts-container">
+
+        <div class="fact-box">
+            <h3>1564</h3>
+            <p>Year Galileo was born</p>
+        </div>
+
+        <div class="fact-box">
+            <h3>4</h3>
+            <p>Major moons of Jupiter he observed</p>
+        </div>
+
+        <div class="fact-box">
+            <h3>1642</h3>
+            <p>Year Galileo died</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="aura">
+
+    <h2 class="section-title">Galileo's Aura</h2>
+
+    <div class="aura-number">95/100</div>
+
+    <div class="aura-bar">
+        <div class="aura-fill"></div>
+    </div>
+
+    <p>
+        A fun fictional rating for his legendary scientist energy.
+    </p>
+
+</section>
+
+<section class="quiz-section" id="quiz">
+
+    <h2 class="section-title">Galileo Quiz</h2>
+
+    <p class="section-subtitle">
+        Test what you learned about Galileo Galilei.
+    </p>
+
+    <div class="quiz-container" id="quiz-container">
+
+        <div id="quiz-content">
+
+            <div class="quiz-top">
+                <span id="question-number">Question 1 of 10</span>
+                <span id="score">Score: 0</span>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" id="progress"></div>
+            </div>
+
+            <div class="question" id="question"></div>
+
+            <div id="answers"></div>
+
+            <button class="next-btn" id="next" onclick="nextQuestion()">
+                Next Question
+            </button>
+
+        </div>
+
+        <div class="result" id="result">
+
+            <h2>Quiz Complete!</h2>
+
+            <p>Your final score is:</p>
+
+            <div class="final-score" id="final-score">
+                0/10
+            </div>
+
+            <p id="result-message"></p>
+
+            <br>
+
+            <button class="restart" onclick="restartQuiz()">
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    Galileo Galileo | By Marc Andrei Ramos
+</footer>
+
+<script>
+
+const questions = [
+    {
+        question: "Where was Galileo Galilei born?",
+        answers: [
+            "Pisa, Italy",
+            "Rome, Italy",
+            "Florence, Italy",
+            "Venice, Italy"
+        ],
+        correct: "Pisa, Italy"
+    },
+
+    {
+        question: "What instrument did Galileo famously improve?",
+        answers: [
+            "Telescope",
+            "Microscope",
+            "Compass",
+            "Barometer"
+        ],
+        correct: "Telescope"
+    },
+
+    {
+        question: "Which planet's moons did Galileo observe?",
+        answers: [
+            "Jupiter",
+            "Mars",
+            "Saturn",
+            "Venus"
+        ],
+        correct: "Jupiter"
+    },
+
+    {
+        question: "How many major moons of Jupiter did Galileo observe?",
+        answers: [
+            "Four",
+            "Two",
+            "Six",
+            "Eight"
+        ],
+        correct: "Four"
+    },
+
+    {
+        question: "What did Galileo observe on the Moon?",
+        answers: [
+            "Mountains and uneven surfaces",
+            "Oceans and rivers",
+            "Trees and forests",
+            "Clouds and storms"
+        ],
+        correct: "Mountains and uneven surfaces"
+    },
+
+    {
+        question: "What did Galileo observe on the Sun?",
+        answers: [
+            "Sunspots",
+            "Rings",
+            "Moons",
+            "Mountains"
+        ],
+        correct: "Sunspots"
+    },
+
+    {
+        question: "Which planet's phases did Galileo observe?",
+        answers: [
+            "Venus",
+            "Mars",
+            "Jupiter",
+            "Mercury"
+        ],
+        correct: "Venus"
+    },
+
+    {
+        question: "What scientific model did Galileo's observations support?",
+        answers: [
+            "The Sun-centered model",
+            "The Earth-centered model",
+            "The Moon-centered model",
+            "The Star-centered model"
+        ],
+        correct: "The Sun-centered model"
+    },
+
+    {
+        question: "What field is Galileo especially famous for advancing?",
+        answers: [
+            "Astronomy",
+            "Biology",
+            "Medicine",
+            "Geology"
+        ],
+        correct: "Astronomy"
+    },
+
+    {
+        question: "In which year did Galileo die?",
+        answers: [
+            "1642",
+            "1609",
+            "1632",
+            "1670"
+        ],
+        correct: "1642"
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+const question = document.getElementById("question");
+const answers = document.getElementById("answers");
+const questionNumber = document.getElementById("question-number");
+const scoreText = document.getElementById("score");
+const progress = document.getElementById("progress");
+const next = document.getElementById("next");
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array;
+}
+
+function loadQuestion() {
+
+    answered = false;
+
+    next.style.display = "none";
+    next.textContent = "Next Question";
+
+    let current = questions[currentQuestion];
+
+    question.textContent = current.question;
+
+    questionNumber.textContent =
+        "Question " + (currentQuestion + 1) + " of " + questions.length;
+
+    scoreText.textContent = "Score: " + score;
+
+    progress.style.width =
+        ((currentQuestion + 1) / questions.length) * 100 + "%";
+
+    answers.innerHTML = "";
+
+    let shuffledAnswers = shuffle([...current.answers]);
+
+    shuffledAnswers.forEach(answer => {
+
+        let button = document.createElement("button");
+
+        button.className = "answer";
+        button.textContent = answer;
+
+        button.onclick = function() {
+            selectAnswer(answer, button);
+        };
+
+        answers.appendChild(button);
+    });
+}
+
+function selectAnswer(selected, button) {
+
+    if (answered) return;
+
+    answered = true;
+
+    let correctAnswer = questions[currentQuestion].correct;
+
+    let allButtons = document.querySelectorAll(".answer");
+
+    allButtons.forEach(btn => {
+
+        btn.disabled = true;
+
+        if (btn.textContent === correctAnswer) {
+            btn.classList.add("correct");
+        }
+
+    });
+
+    if (selected === correctAnswer) {
+
+        score++;
+
+        scoreText.textContent = "Score: " + score;
+
+    } else {
+
+        button.classList.add("wrong");
+
+    }
+
+    next.style.display = "block";
+
+    if (currentQuestion === questions.length - 1) {
+        next.textContent = "See Final Score";
+    }
+}
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+
+        loadQuestion();
+
+    } else {
+
+        showResult();
+
+    }
+}
+
+function showResult() {
+
+    document.getElementById("quiz-content").style.display = "none";
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("final-score").textContent =
+        score + "/" + questions.length;
+
+    let message;
+
+    if (score === 10) {
+        message = "Perfect score! You really know Galileo.";
+    } else if (score >= 8) {
+        message = "Excellent work! You have a strong knowledge of Galileo.";
+    } else if (score >= 5) {
+        message = "Good job! You know the basics, but there is more to discover.";
+    } else {
+        message = "Keep learning and try the quiz again!";
+    }
+
+    document.getElementById("result-message").textContent = message;
+}
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("quiz-content").style.display = "block";
+
+    document.getElementById("result").style.display = "none";
+
+    loadQuestion();
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
